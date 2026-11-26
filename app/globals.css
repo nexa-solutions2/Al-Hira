@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-navy-950: #0a1628;
+  --color-navy-900: #0f2140;
+  --color-navy-800: #15305a;
+  --color-navy-700: #1d3f73;
+  --color-orange-600: #c96d1c;
+  --color-orange-500: #e0812a;
+  --color-orange-400: #f09a48;
+  --color-steel-50: #f5f6f8;
+  --color-steel-100: #eceef2;
+  --color-steel-200: #dde1e7;
+  --color-steel-500: #6b7280;
+  --color-ink: #141a24;
+
+  /* 1900px+ (widescreen) */
+  --breakpoint-3xl: 118.75rem;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-barlow);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* Widescreen: everything is sized in rem, so growing the base size scales the whole site evenly.
+     16px up to 1536px wide, then grows smoothly to 20px at 2560px. Uses % so the visitor's own
+     browser font setting is still respected. */
+  font-size: clamp(100%, calc(100% + (100vw - 96rem) * 0.0039), 125%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: var(--color-ink);
+}
+
+/* Full width on every screen: content runs to a small side margin (about 3.3% of the screen),
+   so the logo and hero text sit at the far left. Capped only on ultrawide (3440px+) screens. */
+.container-x {
+  width: 100%;
+  max-width: 120rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 3.3vw, 6rem);
+}
+
+/* Widescreen: grey text is darker and medium weight so it stays readable */
+@media (min-width: 1900px) {
+  :root {
+    --color-steel-500: #4b5563;
+  }
+  [class*="text-steel-"] {
+    font-weight: 500;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  color: var(--color-orange-600);
+}
+
+/* Hero cross-fade */
+.hero-slide {
+  transition: opacity 1.2s ease;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+.hero-slide[data-active="true"] img {
+  animation: kenburns 7s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide,
+  .hero-slide img {
+    transition: none !important;
+    animation: none !important;
+  }
 }
