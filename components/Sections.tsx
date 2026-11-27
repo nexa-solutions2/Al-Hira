@@ -101,7 +101,7 @@ export function ContactSection({ defaultProduct, heading = true }: { defaultProd
               <span className="grid size-10 shrink-0 place-items-center rounded-sm bg-navy-900 text-orange-400">
                 <PhoneIcon />
               </span>
-              <div className="grid grid-cols-2 gap-x-5 gap-y-1 text-[0.95rem] font-medium text-navy-900">
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 whitespace-nowrap text-[0.8rem] font-medium text-navy-900 sm:gap-x-5 sm:text-[0.95rem]">
                 {site.phones.map((p) => (
                   <a key={p} href={tel(p)} className="hover:text-orange-600">
                     {p}

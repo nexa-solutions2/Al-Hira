@@ -19,7 +19,7 @@ export default function Home() {
     <>
       {/* HERO */}
       {/* Height = screen minus header, so heading, text and buttons always fit on the first screen */}
-      <section className="relative isolate h-[calc(100svh-5rem)] min-h-[35rem] overflow-hidden bg-navy-950 md:h-[calc(100svh-8.25rem)] md:min-h-[31.25rem] md:max-h-[62.5rem]">
+      <section className="group/hero relative isolate h-[calc(100svh-5rem)] min-h-[35rem] overflow-hidden bg-navy-950 md:h-[calc(100svh-8.25rem)] md:min-h-[31.25rem] md:max-h-[62.5rem]">
         <HeroSlider />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/60 to-transparent md:bg-gradient-to-r md:from-navy-950/95 md:via-navy-950/60 md:to-transparent" />
         <div className="container-x pointer-events-none relative flex h-full flex-col justify-start pt-8 md:justify-center md:py-10">
@@ -70,10 +70,10 @@ export default function Home() {
           {commitments.map((c, i) => (
             <li
               key={c}
-              className={`flex items-center gap-3 py-5 lg:py-6 ${i % 2 ? "pl-4" : ""} ${i > 0 ? "lg:border-l lg:border-steel-200 lg:pl-6" : ""}`}
+              className={`flex items-center gap-2 py-4 whitespace-nowrap sm:gap-3 sm:py-5 lg:py-6 ${i % 2 ? "pl-3 sm:pl-4" : ""} ${i > 0 ? "lg:border-l lg:border-steel-200 lg:pl-6" : ""}`}
             >
-              <CheckIcon className="size-5 shrink-0 text-orange-500" />
-              <span className="font-display text-base font-semibold uppercase tracking-wide text-navy-900 md:text-lg">
+              <CheckIcon className="size-4 shrink-0 text-orange-500 sm:size-5" />
+              <span className="font-display text-[0.8rem] font-semibold uppercase tracking-normal text-navy-900 sm:text-base sm:tracking-wide md:text-lg">
                 {c}
               </span>
             </li>
