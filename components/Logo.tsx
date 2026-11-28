@@ -4,13 +4,13 @@ import Link from "next/link";
 export function Logo({ invert = false }: { invert?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5" aria-label="Al Hira Industries – Home">
-      <span className={invert ? "rounded-md bg-white p-1" : ""}>
+      <span className={invert ? "rounded-md bg-white p-1.5" : ""}>
         <Image
-          src="/images/logo-mark.png"
+          src="/images/logo-full.png"
           alt=""
-          width={400}
-          height={306}
-          className="h-12 w-auto md:h-16"
+          width={532}
+          height={469}
+          className="h-14 w-auto md:h-[4.5rem]"
           preload
         />
       </span>

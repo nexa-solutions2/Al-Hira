@@ -14,6 +14,13 @@ const steps = [
   { t: "Paint, check & deliver", d: "Weight checked, painted to your colour and delivered in bulk." },
 ];
 
+const machines = [
+  { name: "Tractor", slug: "tractor-front-counterweights", src: "/images/grid-tractor.webp" },
+  { name: "Hydra Crane", slug: "hydra-rear-counterweights", src: "/images/grid-hydra.webp" },
+  { name: "Lift", slug: "elevator-lift-counterweights", src: "/images/grid-lift.webp" },
+  { name: "Forklift", slug: "forklift-counterweights", src: "/images/grid-forklift.webp" },
+];
+
 export default function Home() {
   return (
     <>
@@ -81,8 +88,43 @@ export default function Home() {
         </ul>
       </section>
 
+      {/* SHOP BY MACHINE */}
+      <section className="pt-10 md:pt-14">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Counterweights by machine"
+            title="Built for the machines you run"
+            text="Tell us your machine and weight. We make the counterweight to fit."
+          />
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 md:mt-10 lg:grid-cols-4">
+            {machines.map((m) => (
+              <Link
+                key={m.slug}
+                href={`/counterweights/${m.slug}`}
+                className="group relative isolate block aspect-square overflow-hidden bg-navy-950"
+              >
+                <Image
+                  src={m.src}
+                  alt={`${m.name} counterweight made by Al Hira Industries`}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5">
+                  <h3 className="font-display text-xl font-bold uppercase leading-none tracking-wide text-white sm:text-3xl">
+                    {m.name}
+                  </h3>
+                  <span className="mt-2 block h-[3px] w-8 bg-orange-500 transition-all duration-300 group-hover:w-16" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* COUNTERWEIGHTS */}
-      <section className="pt-16 pb-12 md:py-24">
+      <section className="pt-10 pb-12 md:pt-14 md:pb-24">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionHeading

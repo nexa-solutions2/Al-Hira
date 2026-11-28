@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: "website",
     locale: "en_IN",
-    images: ["/images/hero-workshop.webp"],
   },
 };
 

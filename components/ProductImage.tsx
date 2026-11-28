@@ -20,7 +20,7 @@ export function ProductImage({
         <Image src={src} alt={alt} fill sizes={sizes} preload={preload} className="object-contain" />
       ) : (
         <div className="flex size-full flex-col items-center justify-center gap-3 bg-steel-50 bg-[repeating-linear-gradient(135deg,transparent_0_14px,rgba(15,33,64,0.035)_14px_28px)]">
-          <Image src="/images/logo-mark.png" alt="" width={400} height={306} className="h-12 w-auto opacity-30 grayscale" />
+          <Image src="/images/logo-mark.png" alt="" width={365} height={348} className="h-12 w-auto opacity-30 grayscale" />
           <span className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-steel-500">
             Photo coming soon
           </span>
